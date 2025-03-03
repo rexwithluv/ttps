@@ -5,7 +5,7 @@ export const CarritoContext = createContext();
 export default function CarritoProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
 
-  const agregarAlCarrito = (producto) => {
+  const anyadirAlCarrito = (producto) => {
     setCarrito((prevCarrito) => [...prevCarrito, producto]);
   };
 
@@ -23,7 +23,7 @@ export default function CarritoProvider({ children }) {
     <CarritoContext.Provider
       value={{
         carrito,
-        agregarAlCarrito,
+        agregarAlCarrito: anyadirAlCarrito,
         eliminarDelCarrito,
         vaciarCarrito,
         carritoVacio: carrito.length === 0,
