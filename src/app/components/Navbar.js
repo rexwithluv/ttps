@@ -1,8 +1,21 @@
 import Link from "next/link";
 
 export default function Navbar() {
-  const carrito = ["cosita"];
+  const carrito = [
+    "cosita",
+    "cosita",
+    "cosita",
+
+    "cosita",
+    "cosita",
+    "cosita",
+    "cosita",
+    "cosita",
+    "cosita",
+    "cosita",
+  ];
   const carritoVacio = carrito.length === 0;
+  const elementosEnCarrito = carrito.length;
 
   return (
     <nav className="navbar navbar-expand-lg bg-primary">
@@ -54,10 +67,13 @@ export default function Navbar() {
         <ul className="navbar-nav ms-auto fs-5">
           <li className="nav-item">
             <Link className="nav-link" href={"/"}>
-              {carritoVacio ? (
-                <i className="bi bi-cart" />
-              ) : (
-                <i class="bi bi-cart-fill" />
+              {carritoVacio && <i className="bi bi-cart" />}
+              {!carritoVacio && (
+                <span className="bi bi-cart-fill position-relative">
+                  <sup className="position-absolute top-0 start-100 translate-middle pb-2 fw-bold">
+                    {elementosEnCarrito}
+                  </sup>
+                </span>
               )}
             </Link>
           </li>
