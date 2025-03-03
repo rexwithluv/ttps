@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
+import CarritoProvider from "./contexts/CarritoContext";
+
 import "./globals.scss";
 
 export default function RootLayout({ children }) {
@@ -18,11 +20,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es-ES">
       <body className="main-container">
-        <Navbar />
+        <CarritoProvider>
+          <Navbar />
 
-        <main className="main-content">{children}</main>
+          <main className="main-content">{children}</main>
 
-        <Footer />
+          <Footer />
+        </CarritoProvider>
       </body>
     </html>
   );
