@@ -1,0 +1,20 @@
+// Sobreescribir clases de BS => https://stackoverflow.com/questions/38792005/how-to-change-the-bootstrap-primary-color
+
+// 1. Importa Bootstrap's Sass variables
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+// 2. Sobreescribe las variables de colores con los valores de tu paleta
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "primary": #a79e8f,
+    "secondary": #231e1a,
+    "success": #6f6a66,
+    "danger": #827f7b,
+    "warning": #777672,
+  )
+);
+
+// 3. Ahora importa los archivos principales de Bootstrap para aplicar las variables
+@import "node_modules/bootstrap/scss/bootstrap";
