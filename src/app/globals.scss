@@ -25,9 +25,9 @@ $theme-colors: map-merge(
   (
     "primary": #a79e8f,
     "dark": #231e1a,
-    // "success": #6f6a66,
-    // "danger": #827f7b,
-    // "warning": #777672,
+    "secondary": #6f6a66,
+    "terciary": #827f7b,
+    "last": #777672,
   )
 );
 
@@ -54,6 +54,25 @@ footer {
   margin-top: auto;
 }
 
-.active{
+.active {
   text-decoration: underline;
+}
+
+.vh-80 {
+  height: 80vh;
+}
+.vh-81 {
+  height: 81vh;
+}
+.vh-82 {
+  height: 82vh;
+}
+.vh-83 {
+  height: 83vh;
+}
+.vh-84 {
+  height: 84vh;
+}
+.vh-85 {
+  height: 85vh;
 }
