@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Carrito from "./Carrito";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const actualPath = usePathname();
+
   return (
     <nav className="navbar navbar-expand-lg bg-primary">
       <div className="container-fluid">
@@ -24,25 +27,37 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" href={"/"}>
+              <Link
+                className={`nav-link ${actualPath === "/" && "active"}`}
+                href={"/"}
+              >
                 Inicio
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" href={"/"}>
+              <Link
+                className={`nav-link ${actualPath === "/tienda" && "active"}`}
+                href={"/tienda"}
+              >
                 Tienda
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" href={"/"}>
+              <Link
+                className={`nav-link ${actualPath === "/nosotros" && "active"}`}
+                href={"/nosotros"}
+              >
                 Sobre nosotros
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" href={"/"}>
+              <Link
+                className={`nav-link ${actualPath === "/contacto" && "active"}`}
+                href={"/contacto"}
+              >
                 Contacto
               </Link>
             </li>
