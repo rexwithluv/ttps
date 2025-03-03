@@ -37,3 +37,19 @@ $theme-colors: map-merge(
 * {
   font-family: "Big-Caslon-Medium";
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+footer {
+  margin-top: auto;
+}

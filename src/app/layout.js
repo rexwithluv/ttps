@@ -1,9 +1,10 @@
 "use client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import "./globals.scss";
-import { useEffect } from "react";
 
 export default function RootLayout({ children }) {
   useEffect(() => {
@@ -12,9 +13,12 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es-ES">
-      <body>
+      <body className="main-container">
         <Navbar />
-        {children}
+
+        <main className="main-content">{children}</main>
+
+        <Footer />
       </body>
     </html>
   );
