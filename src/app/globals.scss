@@ -1,5 +1,20 @@
 // Sobreescribir clases de BS => https://stackoverflow.com/questions/38792005/how-to-change-the-bootstrap-primary-color
 
+/* TTPD album palette
+"primary": #a79e8f,
+"secondary": #231e1a,
+"success": #6f6a66,
+"danger": #827f7b,
+"warning": #777672,
+*/
+
+@font-face {
+  font-family: "Big Caslon Medium";
+  src: url("/fonts/Big-Caslon-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 // 1. Importa Bootstrap's Sass variables
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
@@ -18,3 +33,7 @@ $theme-colors: map-merge(
 
 // 3. Ahora importa los archivos principales de Bootstrap para aplicar las variables
 @import "node_modules/bootstrap/scss/bootstrap";
+
+* {
+  font-family: "Big-Caslon-Medium";
+}
