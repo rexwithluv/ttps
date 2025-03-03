@@ -14,20 +14,20 @@
       "runOptions": {
         "runOn": "folderOpen"
       }
+    },
+    {
+      "label": "Start json-server",
+      "type": "shell",
+      "command": "npx json-server --watch src/app/db/db.json --port 5000",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
     }
-    // {
-    //   "label": "Start json-server",
-    //   "type": "shell",
-    //   "command": "npx json-server --watch src/data/db.json --port 5000",
-    //   "problemMatcher": [],
-    //   "isBackground": true,
-    //   "presentation": {
-    //     "reveal": "always",
-    //     "panel": "dedicated"
-    //   },
-    //   "runOptions": {
-    //     "runOn": "folderOpen"
-    //   }
-    // }
   ]
 }

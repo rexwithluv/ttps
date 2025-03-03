@@ -1,0 +1,93 @@
+{
+  "tiposUsuarios": [
+    {
+      "id": "1",
+      "nombre": "administrador"
+    },
+    {
+      "id": "2",
+      "nombre": "usuario"
+    }
+  ],
+  "usuarios": {},
+
+  "categoriasProductos": [
+    {
+      "id": "1",
+      "nombre": "Álbumes"
+    },
+    {
+      "id": "2",
+      "nombre": "Ropa"
+    },
+    {
+      "id": "3",
+      "nombre": "Hogar"
+    }
+  ],
+  "productos": [
+    {
+      "id": "1",
+      "categoria": "1",
+      "nombre": "Vinilo TTPD",
+      "imagen": "vinilo-ttpd",
+      "precio": 39.99
+    },
+    {
+      "id": "2",
+      "categoria": "1",
+      "nombre": "CD Lover",
+      "imagen": "cd-lover",
+      "precio": 54.99
+    },
+    {
+      "id": "3",
+      "categoria": "1",
+      "nombre": "Vinilo exclusivo Midnights",
+      "imagen": "vinilo-midnights",
+      "precio": 58.5
+    },
+    {
+      "id": "4",
+      "categoria": "2",
+      "nombre": "Camiseta 'Florida!!!'",
+      "imagen": "camiseta-florida",
+      "precio": 19.5
+    },
+    {
+      "id": "5",
+      "categoria": "2",
+      "nombre": "Sudadera 'But Daddy I Love Him'",
+      "imagen": "sudadera-daddy",
+      "precio": 87.75
+    },
+    {
+      "id": "6",
+      "categoria": "2",
+      "nombre": "Anillo TTPD",
+      "imagen": "anillo-ttpd",
+      "precio": 8.99
+    },
+    {
+      "id": "7",
+      "categoria": "3",
+      "nombre": "Vaso de acero TTPD",
+      "imagen": "vaso-acero",
+      "precio": 15.0
+    },
+    {
+      "id": "1",
+      "categoria": "1",
+      "nombre": "Taza TTPD",
+      "imagen": "taza",
+      "precio": 15.25
+    },
+    {
+      "id": "1",
+      "categoria": "1",
+      "nombre": "Guitarra acústica 'The Tortured Poets Department'",
+      "imagen": "guitarra",
+      "precio": 119.99
+    }
+  ]
+}
