@@ -24,10 +24,10 @@ $theme-colors: map-merge(
   $theme-colors,
   (
     "primary": #a79e8f,
-    "secondary": #231e1a,
-    "success": #6f6a66,
-    "danger": #827f7b,
-    "warning": #777672,
+    "dark": #231e1a,
+    // "success": #6f6a66,
+    // "danger": #827f7b,
+    // "warning": #777672,
   )
 );
 
