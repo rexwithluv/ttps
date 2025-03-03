@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function Tabs() {
+export default function Tabs({ setCategoriaSeleccionada }) {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export default function Tabs() {
   }, []);
 
   const seleccionarCategoria = (id) => {
+    setCategoriaSeleccionada(id)
     sessionStorage.setItem("categoriaSeleccionada", id);
   };
 
