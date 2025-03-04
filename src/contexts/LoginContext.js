@@ -5,12 +5,22 @@ export const LoginContext = createContext();
 export default function LoginProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
 
-  const loguearse = (usuario) => {
-    setUsuario(usuario);
+  const loguearse = (name, passwd, usuarios) => {
+    const userValido = usuarios.filter((u) => {
+      return u.username === name && u.password === passwd;
+    });
+
+    console.log(userValido);
+
+    if (userValido) {
+      setUsuario(userValido);
+      sessionStorage.setItem("usuarioLogin", JSON.stringify(userValido));
+    }
   };
 
   const desloguearse = () => {
     setUsuario(null);
+    sessionStorage.removeItem("usuarioLogin");
   };
 
   const isAdmin = (usuario) => {
