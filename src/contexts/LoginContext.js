@@ -5,7 +5,7 @@ import { createContext, useEffect, useState } from "react";
 export const LoginContext = createContext();
 
 export default function LoginProvider({ children }) {
-  const [usuario, setUsuario] = useState({});
+  const [usuario, setUsuario] = useState(null);
   const [logueado, setLogueado] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -21,12 +21,12 @@ export default function LoginProvider({ children }) {
   }, [usuario]);
 
   const loguearse = (name, passwd, usuarios) => {
-    const userValido = usuarios.filter((u) => {
+    const userValido = usuarios.find((u) => {
       return u.username === name && u.password === passwd;
     });
 
     if (userValido) {
-      setUsuario(userValido[0]);
+      setUsuario(userValido);
       setLogueado(true);
 
       sessionStorage.setItem("usuarioLogin", JSON.stringify(userValido));
@@ -36,6 +36,7 @@ export default function LoginProvider({ children }) {
   const desloguearse = () => {
     setUsuario(null);
     setLogueado(false);
+    setIsAdmin(false);
 
     sessionStorage.removeItem("usuarioLogin");
     sessionStorage.removeItem("carrito");
