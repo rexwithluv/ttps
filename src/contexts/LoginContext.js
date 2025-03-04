@@ -14,8 +14,11 @@ export default function LoginProvider({ children }) {
 
     setUsuario(usuarioLogin);
     setLogueado(usuarioLogin);
-    setIsAdmin(usuarioLogin[0].tipoUsuario === "1");
   }, []);
+
+  useEffect(() => {
+    setIsAdmin(usuario ? usuario.tipoUsuario === "1" : false);
+  }, [usuario]);
 
   const loguearse = (name, passwd, usuarios) => {
     const userValido = usuarios.filter((u) => {
