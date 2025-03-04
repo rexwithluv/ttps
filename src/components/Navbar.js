@@ -69,7 +69,7 @@ export default function Navbar() {
 
         <ul className="navbar-nav ms-auto fs-5">
           <li className="nav-item">
-            <Link className="nav-link" href={"/"}>
+            <Link className="nav-link" href={"/carrito"}>
               <Carrito />
             </Link>
           </li>
