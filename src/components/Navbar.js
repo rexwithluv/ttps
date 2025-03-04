@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Carrito from "./Carrito";
+import Carrito from "./navbar/Carrito";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 import { LoginContext } from "@/contexts/LoginContext";
