@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { LoginContext } from "@/contexts/LoginContext";
 
 export default function Navbar() {
-  const { logueado, desloguearse } = useContext(LoginContext);
+  const { logueado, desloguearse, isAdmin } = useContext(LoginContext);
   const actualPath = usePathname();
 
   return (
@@ -73,6 +73,14 @@ export default function Navbar() {
               <Carrito />
             </Link>
           </li>
+
+          {isAdmin && (
+            <li className="nav-item">
+              <Link className="nav-link" href={"/admin"}>
+                <i class="bi bi-shield-lock-fill" />
+              </Link>
+            </li>
+          )}
 
           {!logueado ? (
             <li className="nav-item">

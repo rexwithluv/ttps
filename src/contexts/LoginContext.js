@@ -34,12 +34,6 @@ export default function LoginProvider({ children }) {
     sessionStorage.removeItem("carrito");
   };
 
-  const isAdmin = (usuario) => {
-    if (usuario !== null) {
-      return usuario.id === "1";
-    }
-  };
-
   return (
     <LoginContext.Provider
       value={{
@@ -47,7 +41,7 @@ export default function LoginProvider({ children }) {
         logueado,
         loguearse,
         desloguearse,
-        isAdmin,
+        isAdmin: usuario !== null && usuario.id === "1",
       }}
     >
       {children}
