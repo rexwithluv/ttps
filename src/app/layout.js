@@ -20,17 +20,17 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es-ES">
-      <LoginProvider>
-        <body className="main-container">
-          <CarritoProvider>
+      <CarritoProvider>
+        <LoginProvider>
+          <body className="main-container">
             <Navbar />
 
             <main className="main-content">{children}</main>
 
             <Footer />
-          </CarritoProvider>
-        </body>
-      </LoginProvider>
+          </body>
+        </LoginProvider>
+      </CarritoProvider>
     </html>
   );
 }

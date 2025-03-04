@@ -1,10 +1,13 @@
 "use client";
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { CarritoContext } from "./CarritoContext";
 
 export const LoginContext = createContext();
 
 export default function LoginProvider({ children }) {
+  const { vaciarCarrito } = useContext(CarritoContext);
+
   const [usuario, setUsuario] = useState(null);
   const [logueado, setLogueado] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -29,6 +32,7 @@ export default function LoginProvider({ children }) {
       setUsuario(userValido);
       setLogueado(true);
 
+      vaciarCarrito();
       sessionStorage.setItem("usuarioLogin", JSON.stringify(userValido));
     }
   };
@@ -39,7 +43,7 @@ export default function LoginProvider({ children }) {
     setIsAdmin(false);
 
     sessionStorage.removeItem("usuarioLogin");
-    sessionStorage.removeItem("carrito");
+    vaciarCarrito();
   };
 
   return (
