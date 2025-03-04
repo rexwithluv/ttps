@@ -1,9 +1,19 @@
-import { createContext, useState } from "react";
+"use client";
+
+import { createContext, useEffect, useState } from "react";
 
 export const CarritoContext = createContext();
 
 export default function CarritoProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
+
+  useEffect(() => {
+    setCarrito(JSON.parse(sessionStorage.getItem("carrito")) || []);
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  }, [carrito]);
 
   const anyadirAlCarrito = (producto) => {
     setCarrito((prevCarrito) => [...prevCarrito, producto]);
@@ -17,6 +27,7 @@ export default function CarritoProvider({ children }) {
 
   const vaciarCarrito = () => {
     setCarrito([]);
+    sessionStorage.removeItem("carrito");
   };
 
   return (

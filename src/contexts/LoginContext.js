@@ -30,7 +30,8 @@ export default function LoginProvider({ children }) {
     setUsuario(null);
     setLogueado(false);
 
-    JSON.parse(sessionStorage.removeItem("usuarioLogin"));
+    sessionStorage.removeItem("usuarioLogin");
+    sessionStorage.removeItem("carrito");
   };
 
   const isAdmin = (usuario) => {
