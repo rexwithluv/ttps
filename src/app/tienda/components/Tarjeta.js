@@ -5,6 +5,8 @@ import { useContext } from "react";
 export default function Tarjeta({ producto }) {
   const { anyadirAlCarrito } = useContext(CarritoContext);
 
+  const formatearPrecio = (precio) => `${precio.toString().replace(".", ",")}€`;
+
   return (
     <div className="card">
       <Image
@@ -19,13 +21,16 @@ export default function Tarjeta({ producto }) {
       <div className="card-body">
         <h5 className="card-title">{producto.nombre}</h5>
         <p className="card-text">{producto.descripcion}</p>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => anyadirAlCarrito(producto)}
-        >
-          Añadir al carrito
-        </button>
+        <div className="card-text">
+          <p>{formatearPrecio(producto.precio)}</p>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => anyadirAlCarrito(producto)}
+          >
+            Añadir al carrito
+          </button>
+        </div>
       </div>
     </div>
   );
