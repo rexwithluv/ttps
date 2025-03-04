@@ -72,7 +72,7 @@ export default function Navbar() {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link" href={"/"}>
+            <Link className="nav-link" href={"/login"}>
               <i className="bi bi-person-fill" />
             </Link>
           </li>
