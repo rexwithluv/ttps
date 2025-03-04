@@ -23,7 +23,7 @@ export default function CarritoProvider({ children }) {
     <CarritoContext.Provider
       value={{
         carrito,
-        agregarAlCarrito: anyadirAlCarrito,
+        anyadirAlCarrito,
         eliminarDelCarrito,
         vaciarCarrito,
         carritoVacio: carrito.length === 0,
