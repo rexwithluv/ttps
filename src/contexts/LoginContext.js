@@ -1,31 +1,27 @@
-import { loadESLint } from "eslint";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const LoginContext = createContext();
 
 export default function LoginProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
-
-  const logueado = () => {
-    return sessionStorage.getItem("usuarioLogin");
-  };
+  const [logueado, setLogueado] = useState(false);
 
   const loguearse = (name, passwd, usuarios) => {
     const userValido = usuarios.filter((u) => {
       return u.username === name && u.password === passwd;
     });
 
-    console.log(userValido);
-
     if (userValido) {
-      setUsuario(userValido);
-      sessionStorage.setItem("usuarioLogin", JSON.stringify(userValido));
+      setUsuario(userValido[0]);
+
+      setLogueado(true);
     }
   };
 
   const desloguearse = () => {
     setUsuario(null);
-    sessionStorage.removeItem("usuarioLogin");
+
+    setLogueado(false);
   };
 
   const isAdmin = (usuario) => {

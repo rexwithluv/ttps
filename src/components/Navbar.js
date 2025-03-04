@@ -99,7 +99,7 @@ export default function Navbar() {
                   <button
                     type="button"
                     className="dropdown-item"
-                    onClick={desloguearse}
+                    onClick={() => desloguearse()}
                   >
                     Cerrar sesión
                   </button>
