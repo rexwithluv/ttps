@@ -7,10 +7,14 @@ export const LoginContext = createContext();
 export default function LoginProvider({ children }) {
   const [usuario, setUsuario] = useState({});
   const [logueado, setLogueado] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    setUsuario(JSON.parse(sessionStorage.getItem("usuarioLogin")));
-    setLogueado(JSON.parse(sessionStorage.getItem("usuarioLogin")));
+    const usuarioLogin = JSON.parse(sessionStorage.getItem("usuarioLogin"));
+
+    setUsuario(usuarioLogin);
+    setLogueado(usuarioLogin);
+    setIsAdmin(usuarioLogin[0].tipoUsuario === "1");
   }, []);
 
   const loguearse = (name, passwd, usuarios) => {
@@ -41,7 +45,7 @@ export default function LoginProvider({ children }) {
         logueado,
         loguearse,
         desloguearse,
-        isAdmin: usuario !== null && usuario.id === "1",
+        isAdmin,
       }}
     >
       {children}
