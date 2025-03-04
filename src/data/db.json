@@ -13,25 +13,25 @@
     {
       "id": "1",
       "tipoUsuario": "1",
-      "user": "maria",
+      "username": "maria",
       "password": "maria"
     },
     {
       "id": "2",
       "tipoUsuario": "1",
-      "user": "aaron",
+      "username": "aaron",
       "password": "cosita"
     },
     {
       "id": "3",
       "tipoUsuario": "2",
-      "user": "xesus",
+      "username": "xesus",
       "password": "cristo"
     },
     {
       "id": "4",
       "tipoUsuario": "2",
-      "user": "anita",
+      "username": "anita",
       "password": "calentita"
     }
   ],
