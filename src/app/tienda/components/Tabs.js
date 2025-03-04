@@ -22,7 +22,7 @@ export default function Tabs({ setCategoriaSeleccionada }) {
   };
 
   return (
-    <ul className="nav nav-tabs bg-terciary">
+    <ul className="nav nav-tabs bg-tertiary">
       {categorias.map((c) => (
         <li key={c.id} className="nav-item">
           <button

@@ -8,13 +8,6 @@
 "warning": #777672,
 */
 
-@font-face {
-  font-family: "Big Caslon Medium";
-  src: url("/fonts/Big-Caslon-Medium.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 // 1. Importa Bootstrap's Sass variables
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
@@ -26,13 +19,20 @@ $theme-colors: map-merge(
     "primary": #a79e8f,
     "dark": #231e1a,
     "secondary": #6f6a66,
-    "terciary": #827f7b,
+    "tertiary": #827f7b,
     "last": #777672,
   )
 );
 
 // 3. Ahora importa los archivos principales de Bootstrap para aplicar las variables
 @import "node_modules/bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: "Big Caslon Medium";
+  src: url("/fonts/Big-Caslon-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   font-family: "Big-Caslon-Medium";
@@ -60,21 +60,22 @@ footer {
 
 .nav-link {
   color: rgb(0, 0, 0, 0.65);
+
+  &:hover {
+    color: rgb(0, 0, 0, 0.8);
+  }
 }
 
-.nav-link:hover {
-  color: rgb(0, 0, 0, 0.8);
-}
-
-.nav-tabs .nav-link:hover {
-  border-color: rgb(0, 0, 0, 0.65);
-  border-bottom-color: transparent;
-}
-
-.nav-tabs .nav-link:focus {
-  color: rgb(0, 0, 0, 1);
-  border-color: rgb(0, 0, 0, 0.8);
-  border-bottom-color: transparent;
+.nav-tabs .nav-link {
+  &:hover {
+    border-color: rgb(0, 0, 0, 0.65);
+    border-bottom-color: transparent;
+  }
+  &:focus {
+    color: rgb(0, 0, 0, 1);
+    border-color: rgb(0, 0, 0, 0.8);
+    border-bottom-color: transparent;
+  }
 }
 
 .vh-80 {
