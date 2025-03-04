@@ -17,7 +17,7 @@ export default function Tabs({ setCategoriaSeleccionada }) {
   }, []);
 
   const seleccionarCategoria = (id) => {
-    setCategoriaSeleccionada(id)
+    setCategoriaSeleccionada(id);
     sessionStorage.setItem("categoriaSeleccionada", id);
   };
 

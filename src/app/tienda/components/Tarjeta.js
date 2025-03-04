@@ -1,4 +1,4 @@
-import { CarritoContext } from "@/app/contexts/CarritoContext";
+import { CarritoContext } from "@/contexts/CarritoContext";
 import Image from "next/image";
 import { useContext } from "react";
 
