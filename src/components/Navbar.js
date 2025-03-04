@@ -1,11 +1,10 @@
 import Link from "next/link";
-import Carrito from "./navbar/Carrito";
 import { usePathname } from "next/navigation";
-import { useContext } from "react";
-import { LoginContext } from "@/contexts/LoginContext";
+import Carrito from "./navbar/Carrito";
+import User from "./navbar/User";
+import Admin from "./navbar/Admin";
 
 export default function Navbar() {
-  const { logueado, desloguearse, isAdmin } = useContext(LoginContext);
   const actualPath = usePathname();
 
   return (
@@ -68,53 +67,9 @@ export default function Navbar() {
         </div>
 
         <ul className="navbar-nav ms-auto fs-5">
-          <li className="nav-item">
-            <Link className="nav-link" href={"/carrito"}>
-              <Carrito />
-            </Link>
-          </li>
-
-          {isAdmin && (
-            <li className="nav-item">
-              <Link className="nav-link" href={"/admin"}>
-                <i class="bi bi-shield-lock-fill" />
-              </Link>
-            </li>
-          )}
-
-          {!logueado ? (
-            <li className="nav-item">
-              <Link className="nav-link" href={"/login"}>
-                <i className="bi bi-person-fill" />
-              </Link>
-            </li>
-          ) : (
-            <li className="nav-item dropdown">
-              <button
-                type="button"
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-              >
-                <i className="bi bi-person-fill" />
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <button type="button" className="dropdown-item">
-                    Editar perfil
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="dropdown-item"
-                    onClick={() => desloguearse()}
-                  >
-                    Cerrar sesión
-                  </button>
-                </li>
-              </ul>
-            </li>
-          )}
+          <Carrito />
+          <Admin />
+          <User />
         </ul>
       </div>
     </nav>
