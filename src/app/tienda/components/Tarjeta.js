@@ -4,11 +4,13 @@ import { useContext } from "react";
 
 export default function Tarjeta({ producto }) {
   const { anyadirAlCarrito } = useContext(CarritoContext);
-  
+
   return (
     <div className="card">
       <Image
         src={`/images/productos/${producto.imagen}.webp`}
+        layout="responsive"
+        objectFit="cover"
         width={18}
         height={250}
         className="card-img-top"

@@ -29,10 +29,12 @@ export default function Tienda() {
 
   return (
     <>
-      <Tabs setCategoriaSeleccionada={setCategoriaSeleccionada}/>
-      <div>
+      <Tabs setCategoriaSeleccionada={setCategoriaSeleccionada} />
+      <div className="row g-3">
         {productos.map((p) => (
-          <Tarjeta key={p.id} producto={p} />
+          <div key={p.id} className="col-12 col-md-6 col-lg-4">
+            <Tarjeta producto={p} />
+          </div>
         ))}
       </div>
     </>
