@@ -1,9 +1,14 @@
+import { loadESLint } from "eslint";
 import { createContext, useState } from "react";
 
 export const LoginContext = createContext();
 
 export default function LoginProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
+
+  const logueado = () => {
+    return sessionStorage.getItem("usuarioLogin");
+  };
 
   const loguearse = (name, passwd, usuarios) => {
     const userValido = usuarios.filter((u) => {
@@ -33,6 +38,7 @@ export default function LoginProvider({ children }) {
     <LoginContext.Provider
       value={{
         usuario,
+        logueado,
         loguearse,
         desloguearse,
         isAdmin,
