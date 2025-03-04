@@ -9,7 +9,32 @@
       "nombre": "usuario"
     }
   ],
-  "usuarios": {},
+  "usuarios": [
+    {
+      "id": "1",
+      "tipoUsuario": "1",
+      "user": "maria",
+      "password": "maria"
+    },
+    {
+      "id": "2",
+      "tipoUsuario": "1",
+      "user": "aaron",
+      "password": "cosita"
+    },
+    {
+      "id": "3",
+      "tipoUsuario": "2",
+      "user": "xesus",
+      "password": "cristo"
+    },
+    {
+      "id": "4",
+      "tipoUsuario": "2",
+      "user": "anita",
+      "password": "calentita"
+    }
+  ],
 
   "categoriasProductos": [
     {
