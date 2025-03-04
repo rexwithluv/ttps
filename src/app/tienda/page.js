@@ -9,7 +9,9 @@ export default function Tienda() {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    setCategoriaSeleccionada(sessionStorage.getItem("categoriaSeleccionada"));
+    setCategoriaSeleccionada(
+      sessionStorage.getItem("categoriaSeleccionada") || "1"
+    );
   }, []);
 
   useEffect(() => {
