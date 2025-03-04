@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 import CarritoProvider from "../contexts/CarritoContext";
+import LoginProvider from "@/contexts/LoginContext";
 
 import "./globals.scss";
 
@@ -19,15 +20,17 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es-ES">
-      <body className="main-container">
-        <CarritoProvider>
-          <Navbar />
+      <LoginProvider>
+        <body className="main-container">
+          <CarritoProvider>
+            <Navbar />
 
-          <main className="main-content">{children}</main>
+            <main className="main-content">{children}</main>
 
-          <Footer />
-        </CarritoProvider>
-      </body>
+            <Footer />
+          </CarritoProvider>
+        </body>
+      </LoginProvider>
     </html>
   );
 }
