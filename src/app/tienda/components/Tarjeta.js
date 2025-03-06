@@ -1,16 +1,32 @@
 import { CarritoContext } from "@/contexts/CarritoContext";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Tarjeta({ producto }) {
   const { anyadirAlCarrito } = useContext(CarritoContext);
+  const [imagen, setImagen] = useState(producto.imagen);
 
   const formatearPrecio = (precio) => `${precio.toString().replace(".", ",")}€`;
+
+  useEffect(() => {
+    if (producto.imagen === "") {
+      const getImage = async () => {
+        const response = await fetch("https://picsum.photos/1500/1500");
+        setImagen(response.url);
+      };
+
+      getImage();
+    }
+  }, [producto]);
 
   return (
     <div className="card">
       <Image
-        src={`/images/productos/${producto.imagen}.webp`}
+        src={
+          imagen.startsWith("http")
+            ? imagen
+            : `/images/productos/${producto.imagen}.webp`
+        }
         layout="responsive"
         objectFit="cover"
         width={18}
