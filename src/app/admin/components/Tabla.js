@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 import Productos from "../productos/page";
 
-export default function Tabla({ endpoint }) {
+export default function Tabla({ endpoint, setDatoSeleccionado }) {
   const [datos, setDatos] = useState([]);
   const [headers, setHeaders] = useState([]);
-  // const [formData, setFormData] = useState({});
 
   const getData = async () => {
     const response = await fetch(`http://localhost:5000/${endpoint}`);
@@ -15,7 +14,6 @@ export default function Tabla({ endpoint }) {
     setDatos(data);
   };
   const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
-
   const eliminarDato = async (datoId) => {
     try {
       const response = await fetch(
@@ -34,7 +32,6 @@ export default function Tabla({ endpoint }) {
       console.log(`Error: ${e}`);
     }
   };
-  // const cargarDato = (producto);
 
   useEffect(() => {
     const getData = async () => {
@@ -73,6 +70,15 @@ export default function Tabla({ endpoint }) {
               <td key={i}>{dato[h]}</td>
             ))}
             <td>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => {
+                  setDatoSeleccionado(dato);
+                }}
+              >
+                <i className="bi bi-pencil-fill" />
+              </button>
               <button
                 type="button"
                 className="btn btn-secondary"

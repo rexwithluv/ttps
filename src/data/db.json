@@ -23,22 +23,16 @@
       "password": "cosita"
     },
     {
-      "id": "3",
-      "tipoUsuario": "2",
       "username": "xesus",
-      "password": "cristo"
-    },
-    {
-      "id": "4",
+      "password": "cristo_ten_piedad",
       "tipoUsuario": "2",
-      "username": "anita",
-      "password": "calentita"
+      "id": "3"
     },
     {
-      "id": "ad62",
-      "username": "don_dinosaurio",
-      "password": "abc123.",
-      "tipoUsuario": "2"
+      "username": "anita",
+      "password": "cosita",
+      "tipoUsuario": "2",
+      "id": "4"
     }
   ],
   "categoriasProductos": [

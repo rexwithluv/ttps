@@ -1,27 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Form() {
-  const [formData, setFormData] = useState({});
+export default function Form({ usuarioSeleccionado }) {
+  const [nombre, setNombre] = useState("");
+  const [password, setPassword] = useState("");
+  const [tipoUsuario, setTipoUsuario] = useState("0");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    if (usuarioSeleccionado) {
+      setNombre(usuarioSeleccionado.username ?? "");
+      setPassword(usuarioSeleccionado.password ?? "");
+      setTipoUsuario(usuarioSeleccionado.tipoUsuario ?? "0");
+    }
+  }, [usuarioSeleccionado]);
+
   const guardarUsuario = async () => {
     try {
-      const method = "POST";
+      const usuario = {
+        username: nombre,
+        password: password,
+        tipoUsuario: tipoUsuario,
+      };
 
-      const response = await fetch("http://localhost:5000/usuarios/", {
-        method: method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch("http://localhost:5000/usuarios/");
+      const usuarios = await response.json();
 
-      console.log(response);
+      const usuarioExiste = usuarios.find(
+        (u) => u.username === usuario.username
+      );
 
-      if (!response.ok) {
-        throw new Error(`Error al eliminar el dato del endpoint ${endpoint}`);
+      if (!usuarioExiste) {
+        await fetch("http://localhost:5000/usuarios/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(usuario),
+        });
+      } else {
+        await fetch(`http://localhost:5000/usuarios/${usuarioExiste.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(usuario),
+        });
       }
     } catch (e) {
       console.log(`Error: ${e}`);
@@ -40,7 +60,8 @@ export default function Form() {
           id="nombre"
           name="username"
           placeholder="don_dinosaurio"
-          onChange={handleChange}
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
           required
         />
       </div>
@@ -54,18 +75,19 @@ export default function Form() {
           id="contrasenya"
           name="password"
           placeholder="abc123."
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
       <div className="mb-3">
         <label htmlFor="tipo">Tipo de usuario</label>
         <select
-          defaultValue={"0"}
           className="form-select"
           id="tipo"
           name="tipoUsuario"
-          onChange={handleChange}
+          value={tipoUsuario}
+          onChange={(e) => setTipoUsuario(e.target.value)}
           required
         >
           <option value="0" disabled>
