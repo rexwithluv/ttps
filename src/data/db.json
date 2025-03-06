@@ -121,6 +121,14 @@
       "descripcion": "Guitarra acústica con el logo de The Tortured Poets Department.",
       "imagen": "guitarra",
       "precio": 119.99
+    },
+    {
+      "id": "213f",
+      "nombre": "cosita",
+      "descripcion": "top cositas",
+      "categoria": "2",
+      "imagen": "",
+      "precio": "5"
     }
   ]
 }
