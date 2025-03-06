@@ -33,9 +33,14 @@
       "tipoUsuario": "2",
       "username": "anita",
       "password": "calentita"
+    },
+    {
+      "id": "ad62",
+      "username": "don_dinosaurio",
+      "password": "abc123.",
+      "tipoUsuario": "2"
     }
   ],
-
   "categoriasProductos": [
     {
       "id": "1",
@@ -105,7 +110,7 @@
       "nombre": "Vaso de acero TTPD",
       "descripcion": "Vaso de acero inoxidable con el logo de TTPD.",
       "imagen": "vaso-acero",
-      "precio": 15.0
+      "precio": 15
     },
     {
       "id": "8",
