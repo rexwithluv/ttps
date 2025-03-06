@@ -17,13 +17,15 @@ export default function Form({ usuarioSeleccionado }) {
 
   const guardarUsuario = async () => {
     try {
+      const URL = "http://localhost:5000/usuarios/";
+
       const usuario = {
         username: nombre,
         password: password,
         tipoUsuario: tipoUsuario,
       };
 
-      const response = await fetch("http://localhost:5000/usuarios/");
+      const response = await fetch(URL);
       const usuarios = await response.json();
 
       const usuarioExiste = usuarios.find(
@@ -31,13 +33,13 @@ export default function Form({ usuarioSeleccionado }) {
       );
 
       if (!usuarioExiste) {
-        await fetch("http://localhost:5000/usuarios/", {
+        await fetch(URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(usuario),
         });
       } else {
-        await fetch(`http://localhost:5000/usuarios/${usuarioExiste.id}`, {
+        await fetch(`URL${usuarioExiste.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(usuario),

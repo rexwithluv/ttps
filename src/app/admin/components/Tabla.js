@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Productos from "../productos/page";
 
 export default function Tabla({ endpoint, setDatoSeleccionado }) {
   const [datos, setDatos] = useState([]);
